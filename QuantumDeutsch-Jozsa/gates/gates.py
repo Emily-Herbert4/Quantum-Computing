@@ -1,8 +1,12 @@
 import numpy as np
 #identy
 I = np.array([[1,0],[0,1]])
-""" Here are some of the common quantum gates
-"""
+
+#Kets
+ket_0 = np.array([1,0])
+ket_1 = np.array([0,1])
+
+""" Here are some of the common quantum gates"""
 #Pauli gates
 M = np.array([[0,1],[1,0]])
 Y = np.array([[0, -1j],[1j,0]])
