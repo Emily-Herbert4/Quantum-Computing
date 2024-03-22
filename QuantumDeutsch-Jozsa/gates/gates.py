@@ -43,6 +43,7 @@ BS = (1/np.sqrt(2))*np.array([[1,-1j],[-1j,1]])
 def P(theta):
     ket_theta= np.array([np.cos(theta),np.sin(theta)])
     return np.outer(ket_theta,ket_theta)
+
 def P_2(theta):
     sin= np.sin(theta)
     cos = np.cos(theta)
@@ -50,21 +51,21 @@ def P_2(theta):
         sin = 0
     if cos<error:
         cos = 0
-        
+  
     return np.array([[cos*cos,cos*sin],[cos*sin,sin*sin]])
 
 def M_theta(theta):
-    sin = np.sin(theta)
-    cos = np.cos(theta)
-    if sin<10**-10:
-        sin = 0
-    if cos<10**-10:
-        cos = 0
-    P = np.array([[cos, -sin],[sin, cos]])
-    return P
+    sin_theta = np.sin(theta)
+    cos_theta = np.cos(theta)
+    if sin_theta<10**-10:
+        sin_theta = 0
+    if cos_theta<10**-10:
+        cos_theta = 0
+    
+    return np.array([[cos_theta, -sin_theta],[sin_theta, cos_theta]])
 
 def W_4 (theta_0,theta_1):
-    w_0 =np.sin(2*theta_0)
+    w_0 = np.sin(2*theta_0)
     w_1 =np.sin(2*theta_1)
     #This accounts for rounding errors
     if (w_0<10**-15):
@@ -86,3 +87,4 @@ def WavePlate_guess(guess):
             M_tests.append(guess.dot(W_4(theta_0,theta_1)))
     return M_tests
 
+print("loaded")
