@@ -10,8 +10,8 @@ ket_1 = np.array([0,1])
 ket_a = ket_0
 ket_b = ket_1
 
-ket_V = 1j*ket_0
-ket_H = 1j*ket_1
+ket_V = 1j*ket_1
+ket_H = 1j*ket_0
 """ Here are some of the common quantum gates"""
 #Pauli gates
 M = np.array([[0,1],[1,0]])
@@ -41,25 +41,30 @@ BS = (1/np.sqrt(2))*np.array([[1,-1j],[-1j,1]])
 
 #Polairazor opperator
 def P(theta):
-    ket_theta= np.array([np.cos(theta),np.sin(theta)])
+    cos = np.cos(theta)
+    sin = np.sin(theta)
+    if (np.abs(cos)<error):
+        cos =0
+    if(np.abs(sin)<error):
+        sin =0
+    ket_theta= np.array([cos,sin])
     return np.outer(ket_theta,ket_theta)
 
 def P_2(theta):
     sin= np.sin(theta)
     cos = np.cos(theta)
-    if sin<error:
+    if np.abs(sin)<error:
         sin = 0
-    if cos<error:
+    if np.abs(cos)<error:
         cos = 0
-  
     return np.array([[cos*cos,cos*sin],[cos*sin,sin*sin]])
 
 def M_theta(theta):
     sin_theta = np.sin(theta)
     cos_theta = np.cos(theta)
-    if sin_theta<10**-10:
+    if np.abs(sin_theta)<error:
         sin_theta = 0
-    if cos_theta<10**-10:
+    if np.abs(cos_theta)<error:
         cos_theta = 0
     
     return np.array([[cos_theta, -sin_theta],[sin_theta, cos_theta]])
@@ -68,9 +73,9 @@ def W_4 (theta_0,theta_1):
     w_0 = np.sin(2*theta_0)
     w_1 =np.sin(2*theta_1)
     #This accounts for rounding errors
-    if (w_0<10**-15):
+    if (np.abs(w_0)<error):
         w_0 = 0
-    if (w_1<10**-15):
+    if (np.abs(w_1)<error):
         w_1 = 0
     w = np.array([[w_0, np.cos(2*theta_0),0,0],
                   [np.cos(2*theta_0),-w_0,0,0],
@@ -86,5 +91,3 @@ def WavePlate_guess(guess):
         for theta_1 in angle:
             M_tests.append(guess.dot(W_4(theta_0,theta_1)))
     return M_tests
-
-print("loaded")
