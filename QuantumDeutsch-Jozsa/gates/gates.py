@@ -1,7 +1,7 @@
 import numpy as np
 #identy
 I = np.array([[1,0],[0,1]])
-
+error = 10**-10
 """Kets"""
 ket_0 = np.array([1,0])
 ket_1 = np.array([0,1])
@@ -43,14 +43,22 @@ BS = (1/np.sqrt(2))*np.array([[1,-1j],[-1j,1]])
 def P(theta):
     ket_theta= np.array([np.cos(theta),np.sin(theta)])
     return np.outer(ket_theta,ket_theta)
-
+def P_2(theta):
+    sin= np.sin(theta)
+    cos = np.cos(theta)
+    if sin<error:
+        sin = 0
+    if cos<error:
+        cos = 0
+        
+    return np.array([[cos*cos,cos*sin],[cos*sin,sin*sin]])
 
 def M_theta(theta):
     sin = np.sin(theta)
     cos = np.cos(theta)
-    if (sin<10**-10):
+    if sin<10**-10:
         sin = 0
-    if (cos<10**-10):
+    if cos<10**-10:
         cos = 0
     P = np.array([[cos, -sin],[sin, cos]])
     return P
