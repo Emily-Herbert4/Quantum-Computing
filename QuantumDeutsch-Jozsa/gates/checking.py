@@ -1,7 +1,7 @@
-import gates as g
 import numpy as np
 #import uncertainties import unumpy
-
+#rounding up to error decimal places
+error =6
 one_sqrt2=(1/np.sqrt(2))
 #Constant 
 #ket_cb = np.kron((1j/np.sqrt(2))*(g.ket_a), g.ket_H-g.ket_V)
@@ -16,7 +16,7 @@ print(np.round(ket_test,4))
 print(np.array_equiv(np.around(ket_b,4),np.around(ket_test,4)))"""
 def output(ket):
     #error 2 is around a 1.11% rounding error acounted for
-    error =6
+    
     if np.array_equiv(np.round(ket,error),np.round(ket_c,error)) or np.array_equiv(np.round(ket,error),np.round(-ket_c,error)):
         return 'constant'
     if np.array_equiv(np.round(ket,error),np.round(ket_b,error)) or np.array_equiv(np.round(ket,error),np.round(-ket_b,error)):
