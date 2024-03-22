@@ -16,7 +16,7 @@ print(np.round(ket_test,4))
 print(np.array_equiv(np.around(ket_b,4),np.around(ket_test,4)))"""
 def output(ket):
     #error 2 is around a 1.11% rounding error acounted for
-    error =4
+    error =6
     if np.array_equiv(np.round(ket,error),np.round(ket_c,error)) or np.array_equiv(np.round(ket,error),np.round(-ket_c,error)):
         return 'constant'
     if np.array_equiv(np.round(ket,error),np.round(ket_b,error)) or np.array_equiv(np.round(ket,error),np.round(-ket_b,error)):
