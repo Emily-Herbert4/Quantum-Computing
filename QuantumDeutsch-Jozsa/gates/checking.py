@@ -31,9 +31,9 @@ def targets():
     for i in thetas:
       for j in thetas:
         polarizer = np.kron(g.I,(np.sqrt(2))*g.P(-np.pi/4))
-        beamsplitter_one = np.kron(g.BS,g.Z)
+        beamsplitter_one = np.kron(g.BS,g.I)
         WavePlate = g.W_4(i,j)
-        Mirror = np.kron(g.M,-g.Z)
+        Mirror = np.kron(g.M,-g.I) #g.Z
         beamsplitter_two = np.kron(g.BS,g.I)
         input_ket = np.kron(g.ket_0,g.ket_V)
         
