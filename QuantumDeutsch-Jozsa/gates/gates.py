@@ -25,6 +25,7 @@ S = np.array([[1,0],[0,1j]])
 V = (0.5)*np.array([[1+1j,1-1j],[1-1j,1+1j]])
 #CNOT
 CNOT = np.array([[1,0,0,0],[0,1,0,0],[0,0,0,1],[0,0,1,0]])
+CNOT2 = np.array([[1,0,0,0],[0,0,0,1],[0,0,1,0],[0,1,0,0]])
 #Anticontrolled-NOT,anticontrolled-X,zero control,control-on-0-NOT,reversible exclusive NOR
 XNOR= np.array([[0,1,0,0],[1,0,0,0],[0,0,1,0],[0,0,0,1]])
 #Controlled-Z,controlled sign flip,controlled phase flip

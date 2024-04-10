@@ -1,0 +1,47 @@
+\documentclass{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,width=165mm,top=20mm,bottom=20mm]{geometry}
+\usepackage{amsfonts, amsmath, amsthm,biblatex, comment, hyperref,imakeidx, indentfirst,tikz-cd,pgfplots,physics, todonotes}
+
+\usetikzlibrary{shapes.geometric, arrows}
+%creats the hyperlinks blue copied from Proff. Glass 
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+%\documentclass[letterpaper,10pt]{article}
+\addbibresource{ref.bib}
+
+\theoremstyle{definition}
+
+\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{definition}{Definition}[subsection]
+\newtheorem{example}{Example}[subsection]
+\newtheorem{lemma}{Lemma}[subsection]
+\newtheorem{property}{Property}[definition]
+\newtheorem*{remark}{Remark}
+\numberwithin{equation}{subsection}
+
+\author{Emily Herbert}
+\date{\today}
+\title{Two Qubit Deutsch Jozsa Algorithm Using Optics
+at the Undergraduate Level}
+
+\begin{document}
+
+\maketitle
+\begin{abstract}
+   Beginnings of the Senior Prodject for Physics
+\end{abstract}
+\input{Background}
+
+\input{appendix}
+
+%refernaces 
+%\bibliographystyle{opticajnl}  % Replace with the name of your .bst file
+%\bibliography{ref}     % Replace with the name of your .bib file
+\end{document}
