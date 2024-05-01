@@ -35,7 +35,7 @@ DCNOT = np.array([[1,0,0,0],[0,0,1,0],[0,0,0,1],[0,1,0,0]])
 #Swap
 SWAP = np.array([[1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
 #Imagary Swap
-SWAP = np.array([[1,0,0,0],[0,0,1j,0],[0,1j,0,0],[0,0,0,1]])
+SWAPI = np.array([[1,0,0,0],[0,0,1j,0],[0,1j,0,0],[0,0,0,1]])
 
 """Gates created for the Senior Project Setup Spring 2024"""
 BS = (1/np.sqrt(2))*np.array([[1,-1j],[-1j,1]])
@@ -50,6 +50,13 @@ def P(theta):
         sin =0
     ket_theta= np.array([cos,sin])
     return np.outer(ket_theta,ket_theta)
+
+def P(ket,theta):
+    return_ket= np.array([np.cos(theta),np.sin(theta)])
+    for i in return_ket:
+        if i <error:
+            i =0
+    return return_ket
 
 def P_2(theta):
     sin= np.sin(theta)
