@@ -51,12 +51,12 @@ def P(theta):
     ket_theta= np.array([cos,sin])
     return np.outer(ket_theta,ket_theta)
 
-def P(ket,theta):
-    return_ket= np.array([np.cos(theta),np.sin(theta)])
-    for i in return_ket:
+def P_ket(theta):
+    ket_i= np.array([np.cos(theta),np.sin(theta)])
+    for i in ket_i:
         if i <error:
             i =0
-    return return_ket
+    return (np.matmul(np.outer(ket_0,ket_0),ket_i)+np.matmul(np.outer(ket_1,ket_1),ket_i))
 
 def P_2(theta):
     sin= np.sin(theta)
