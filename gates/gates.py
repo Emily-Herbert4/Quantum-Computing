@@ -38,7 +38,7 @@ SWAP = np.array([[1,0,0,0],[0,0,1,0],[0,1,0,0],[0,0,0,1]])
 SWAPI = np.array([[1,0,0,0],[0,0,1j,0],[0,1j,0,0],[0,0,0,1]])
 
 """Gates created for the Senior Project Setup Spring 2024"""
-BS = (1/np.sqrt(2))*np.array([[1,-1j],[-1j,1]])
+BS = (1/np.sqrt(2))*np.array([[1,1j],[1j,1]])
 
 #Polairazor opperator
 def P(theta):
@@ -79,7 +79,7 @@ def M_theta(theta):
 
 def W_4 (theta_0,theta_1):
     w_0 = np.sin(2*theta_0)
-    w_1 =np.sin(2*theta_1)
+    w_1 =np.cos(2*theta_1)
     #This accounts for rounding errors
     if (np.abs(w_0)<error):
         w_0 = 0
